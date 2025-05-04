@@ -83,9 +83,9 @@ BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 - If the input is empty (the user just presses Enter), the loop breaks and the program exits with a goodbye message.
 
 # If a city name is provided, it:
-	-Calls get_weather() to fetch weather data for the entered city.
-	-Calls display_weather() to print the results.
-	-Pauses for 1 second with time.sleep(1) to make the output more readable.
+	- Calls get_weather() to fetch weather data for the entered city.
+	- Calls display_weather() to print the results.
+	- Pauses for 1 second with time.sleep(1) to make the output more readable.
 
 ---
 
