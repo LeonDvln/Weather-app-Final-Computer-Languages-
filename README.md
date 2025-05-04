@@ -1,84 +1,102 @@
-# 🌦️ Weather App (Python + OpenWeatherMap API)
 
-This is a simple command-line weather app written in Python. It fetches current weather data (temperature, humidity, and condition) for any city using the OpenWeatherMap API.
+# Weather App (Python + OpenWeatherMap API)
 
----
-
-## 📌 Features
-
-- Fetch current weather for any city
-- User chooses temperature units (°C or °F)
-- Handles errors like invalid city names or API key issues
-- Clean and structured code with comments
+## Description
+This is a simple command-line weather application written in Python. It fetches and displays current weather information for any city using the OpenWeatherMap API.
 
 ---
 
-## 🚀 How to Run
+## Features
 
-1. Make sure you have Python 3 installed.
-2. Install the required library:
+- Ask user for temperature unit (Celsius or Fahrenheit)
+- Input any city name to retrieve real-time weather
+- Shows:
+  - Day and time (e.g. Monday, 1AM)
+  - Temperature
+  - Humidity
+  - Condition (e.g. "Few clouds")
+- Handles invalid cities or network errors gracefully
+- Keeps asking for new cities until Enter is pressed
 
-   ```bash
-   python -m pip install requests
-   ```
+---
 
-3. Get a free API key from [https://openweathermap.org/api](https://openweathermap.org/api)
-4. Insert your API key into the `API_KEY` variable in `weather.py`
-5. Run the app:
+## Requirements
 
+- Python 3.7+
+- Internet connection
+- `requests` library (install with `pip install requests`)
+
+---
+
+## How to Use
+
+1. Replace `"your_api_key_here"` in `weather.py` with your OpenWeatherMap API key.
+2. Open terminal/command prompt.
+3. Run the app:
    ```bash
    python weather.py
    ```
+4. Follow on-screen instructions.
 
 ---
 
-## 📂 File Structure
+## Code Explanation
 
+### Import Statements
+```python
+import requests
+from datetime import datetime
+import time
 ```
-weatherapp/
-├── weather.py       # Main Python script
-├── README.md        # This file
+- `requests`: for making HTTP requests to the API.
+- `datetime`: to get the current day and time.
+- `time`: for a short delay after each request.
+
+### API Setup
+```python
+API_KEY = "your_api_key_here"
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 ```
+- Replace `API_KEY` with your OpenWeatherMap key.
+
+### get_weather()
+- Sends a request to the API with city and unit.
+- Returns a dictionary with weather info or an error message.
+
+### display_weather()
+- Displays formatted weather results if successful.
+- Handles and shows any error if the request failed.
+
+### get_time_and_day()
+- Returns the current weekday and hour in format like `Monday, 1AM`.
+
+### main()
+- User chooses unit: Celsius (default) or Fahrenheit.
+- Enters a city (or presses Enter to exit).
+- Weather is fetched and displayed.
+- Repeats until user exits.
 
 ---
 
-## 🧠 Code Explanation
-
-Below is a full breakdown of the code, line by line:
-
-...
-
-## ✅ Marking Criteria Covered
-
-| Criteria                      | Included? | Notes |
-|------------------------------|-----------|-------|
-| ✅ API integration & JSON     | ✔️        | Uses `requests` and `.get()` safely |
-| ✅ City input handling        | ✔️        | Uses `input()` and `.strip()` |
-| ✅ Output formatting          | ✔️        | Temperature shown with °C or °F |
-| ✅ Error handling             | ✔️        | Handles network, API key, city errors |
-| ✅ Code structure & UX        | ✔️        | Uses functions and clear prompts |
-
----
-
-## 🧊 Example Output
+## Example Output
 
 ```
 === Weather App ===
-Enter city name: Tashkent
-
 Choose temperature unit:
-1. Celsius (°C)
+1. Celsius (°C) [default]
 2. Fahrenheit (°F)
 Enter 1 or 2: 1
 
-Weather in Tashkent:
-Temperature: 20.97°C
-Humidity: 40%
+Enter city name (or press Enter to exit): Tashkent
+Monday, 1AM in Tashkent weather is:
+Temperature: 18.5 C
+Humidity: 45%
 Condition: Clear sky
+----------------------------------------
 ```
 
 ---
 
-## 📜 License
+## License
 
-This is a basic educational project. Feel free to modify or share it.
+This project is free to use for learning and academic purposes.
