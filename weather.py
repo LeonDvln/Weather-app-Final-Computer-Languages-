@@ -1,13 +1,13 @@
-import requests
-from datetime import datetime
-import time
+import requests # Allow program to make HTTP requests to the weather API
+from datetime import datetime # Gets current date and time of the user
+import time # Provides delay features
 
-# Your OpenWeatherMap API key goes here
+# OpenWeatherMap API key goes here
 API_KEY = "40b8c6e8711a008c203a0271f99685eb"
 # The base URL for the OpenWeatherMap current weather API
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
-# This function fetches weather data from the API
+# This function gets weather data from the API
 def get_weather(city_name, units="metric"):
     params = {
         "q": city_name,        # City to get weather for
@@ -67,14 +67,14 @@ def main():
     if unit_choice == "2":
         units = "imperial"
     else:
-        units = "metric"
+        units = "metric" # Unit is set on metric(celsius) as default
 
     # Loop to allow user to enter multiple cities
     while True:
         city = input("\nEnter city name (or press Enter to exit): ").strip()
         if not city:
             print("Exiting weather app. Goodbye, have a sunny day (preferably)!")
-            break
+            break # Ending app with pressing Enter
 
         # Fetch and display weather
         weather = get_weather(city, units)
