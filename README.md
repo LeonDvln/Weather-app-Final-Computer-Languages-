@@ -97,11 +97,17 @@ Choose temperature unit:
 2. Fahrenheit (°F)
 Enter 1 or 2: 1
 
+**
 Enter city name (or press Enter to exit): Tashkent
+
 Monday, 1AM in Tashkent weather is:
+
 Temperature: 18.5 C
+
 Humidity: 45%
+
 Condition: Clear sky
+
 ----------------------------------------
 
 ---
