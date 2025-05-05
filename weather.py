@@ -1,4 +1,4 @@
-import requests # Allow program to make HTTP requests to the weather API
+import requests # Allows program to make HTTP requests to the weather API
 from datetime import datetime # Gets current date and time of the user
 import time # Provides delay features
 
